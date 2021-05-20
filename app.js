@@ -1,8 +1,31 @@
-//step1a/b
 const express = require('express');
+const logger = require('morgan');
+const path = require('path')
+const todoRouter = require('./router/todoRouter')
+const indexRouter = require('./routes/indexRouter')
+
 const app = express()
 
-//step 2a-b
-const logger = require('morgan');
 app.use (logger('dev'));
 
+app.use(express.json())
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.set('views', path.join(__dirname, "views"))
+
+app.set('view engine', 'ejs')
+
+
+app.use("/api/todo", todoRouter)
+app.use("/", indexRouter)
+
+
+
+
+
+// app.listen(3000, function(){
+//     console.log('server started')
+// })
+
+module.exports = app
