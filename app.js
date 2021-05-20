@@ -2,7 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path')
 const todoRouter = require('./router/todoRouter')
-const indexRouter = require('./routes/indexRouter')
+const indexRouter = require('./router/indexRouter')
 
 const app = express()
 
@@ -22,10 +22,8 @@ app.use("/", indexRouter)
 
 
 
-
-
-// app.listen(3000, function(){
-//     console.log('server started')
-// })
+app.listen(3000, function(){
+    console.log('server started')
+})
 
 module.exports = app
