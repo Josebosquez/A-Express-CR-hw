@@ -37,19 +37,19 @@ router.get('/get-todo-by-id/:id', function (req,res){
 }),
 
 router.get('/get-todos-by-done/:done', function (req,res){
-    let gotTodo;
+    let gotTodoArr = [];
     let done = req.params.done;
 
     todos.forEach((item)=>{
         if (item.done === done){
-            gotTodo = item;
+            gotTodoArr.push(item);
         }
     })
     
-    if (!gotTodo){
+    if (!gotTodoArr){
         res.status(404).json({ message: "Type true or false" })
     } else {
-        res.json({ payload: gotTodo })
+        res.json({ payload: gotTodoArr })
     }
 }),
 
