@@ -1,4 +1,4 @@
-ONLY .gitignore node_modules\*\*\*
+<!-- ONLY .gitignore node_modules\*\*\*
 
 Create an express simple CR app
 
@@ -8,10 +8,10 @@ Create an express simple CR app
 4. In terminal, npm init -y
 5. Open folder
 6. Add express, Morgan, and ejs through npm i and call them inside app.js file
+ -->
 
-
-7. Create a server using Express, and use logger (Morgan) in App.js (don’t forger to use .json())
-
+<!-- 7. Create a server using Express, and use logger (Morgan) in App.js (don’t forger to use .json()) -->
+<!-- 
 8. Create a router folder and create an index router and a todo router files then connect in App.js (index = /, todo = /api/todo).
 
 
@@ -34,7 +34,7 @@ Create an express simple CR app
     }
     ]
     c. Make a GET "/get-all-todos" route that responds with the array of dummy data.
-    d. Make a GET "/get-todo-by-id" route that takes in a params and responds with the id and todo. If ID is not found respond with the message "The Todo ID you are looking for does not exists, please check ID"
+    d. Make a GET "/get-todo-by-id" route that takes in a params and responds with the id and todo. If ID is not found respond with the message "The Todo ID you are looking for does not exists, please check ID" -->
     e. Make a GET "/get-todos-by-done" route that takes in a params that is either true or false. If the params is false, respond with a newDoneArray that has done === false. If the params is true, respond with a newDoneArray that done === true.
     f. Make a POST "/create-new-todo" route that POSTs a new todo (don't forget the id) with a done that is always false (don't need to pass in done since its always false) and responds with the whole todos array.
 
