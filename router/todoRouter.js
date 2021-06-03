@@ -36,12 +36,51 @@ router.get('/get-todo-by-id/:id', function (req,res){
     }
 }),
 
-router.get('/get-todos-by-done', function (req,res){
-    
+router.get('/get-todos-by-done/:done', function (req,res){
+    let gotTodo;
+    let done = req.params.done;
 
-})
+    todos.forEach((item)=>{
+        if (item.done === done){
+            gotTodo = item;
+        }
+    })
+    
+    if (!gotTodo){
+        res.status(404).json({ message: "Type true or false" })
+    } else {
+        res.json({ payload: gotTodo })
+    }
+}),
 
 router.post('/create-new-todo', function (req,res){
     console.log('post')
+    let foundTodo;
+    
+    let newTodo = {
+        id: uuidv4 (),
+        todo: req.body.todo,
+        done: false,
+    }
+    
+    todos.forEach((item) => {
+        if (newTodo.todo === item.todo) {
+            foundGame = true;
+        } else if (newTodo.todo === "") {
+            res.json({ message: "Cannot leave text area blank" })
+        } else {
+            if (newTodo.description === "") {
+                res.json({ message: "Cannot leave text area blank" })
+            }
+        }
+    })
+    
+    if (foundTodo) {
+        res.status(404).json({ message: "Todo already exists" })
+    } else {
+        todos.push(newTodo),
+        res.json({ todos })
+    }
 })
+
 module.exports = router;
